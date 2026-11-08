@@ -1,0 +1,71 @@
+2026-11-08 01:17:38,522 | INFO | ===== Inicio de la simulación =====
+2026-11-08 01:17:38,522 | INFO | --- Operación 1: Registro válido de cliente ---
+2026-11-08 01:17:38,522 | INFO | Cliente registrado -> Cliente CLI-001: Laura Gómez | Doc: ******567 | laura.gomez@correo.com
+2026-11-08 01:17:38,522 | INFO | Fin del intento de registro de cliente
+2026-11-08 01:17:38,522 | INFO | --- Operación 2: Registro válido de otro cliente ---
+2026-11-08 01:17:38,522 | INFO | Cliente registrado -> Cliente CLI-002: Carlos Pérez | Doc: ******432 | carlos.perez@correo.com
+2026-11-08 01:17:38,522 | INFO | Fin del intento de registro de cliente
+2026-11-08 01:17:38,522 | INFO | --- Operación 3: Registro inválido: correo sin arroba ---
+2026-11-08 01:17:38,522 | ERROR | Registro de cliente rechazado: Correo inválido: 'marta.ruiz.correo.com'.
+2026-11-08 01:17:38,522 | INFO | Fin del intento de registro de cliente
+2026-11-08 01:17:38,522 | INFO | --- Operación 4: Registro inválido: documento con letras y teléfono corto ---
+2026-11-08 01:17:38,522 | ERROR | Registro de cliente rechazado: Documento inválido: '12AB56'. Debe tener de 6 a 10 dígitos.
+2026-11-08 01:17:38,522 | INFO | Fin del intento de registro de cliente
+2026-11-08 01:17:38,522 | INFO | --- Operación 5: Registro inválido: documento repetido ---
+2026-11-08 01:17:38,522 | ERROR | Registro de cliente rechazado: Ya existe un cliente con el documento 1061234567.
+2026-11-08 01:17:38,522 | INFO | Fin del intento de registro de cliente
+2026-11-08 01:17:38,522 | INFO | --- Operación 6: Creación correcta de una sala ---
+2026-11-08 01:17:38,523 | INFO | Servicio creado -> Sala SRV-001: Sala de Reuniones A | capacidad 12 personas | $45,000 por hora + $20,000 de limpieza
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de servicio
+2026-11-08 01:17:38,523 | INFO | --- Operación 7: Creación correcta de un alquiler de equipo ---
+2026-11-08 01:17:38,523 | INFO | Servicio creado -> Equipo SRV-002: Proyector HD | $60,000 por día + 5% de seguro
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de servicio
+2026-11-08 01:17:38,523 | INFO | --- Operación 8: Creación correcta de una asesoría ---
+2026-11-08 01:17:38,523 | INFO | Servicio creado -> Asesoría SRV-003: Asesoría en Python | nivel senior | $80,000 por hora x 1.5
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de servicio
+2026-11-08 01:17:38,523 | INFO | --- Operación 9: Creación incorrecta: tarifa negativa ---
+2026-11-08 01:17:38,523 | ERROR | Creación de servicio rechazada: La tarifa debe ser un número mayor que 0 (recibido: -5000).
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de servicio
+2026-11-08 01:17:38,523 | INFO | --- Operación 10: Creación incorrecta: faltan parámetros (error encadenado) ---
+2026-11-08 01:17:38,523 | ERROR | Creación de servicio rechazada: Parámetros incompletos o de más para crear el servicio 'asesoria'.
+2026-11-08 01:17:38,523 | ERROR |    causa original: AsesoriaEspecializada.__init__() missing 1 required positional argument: 'nivel'
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de servicio
+2026-11-08 01:17:38,523 | INFO | --- Operación 11: Creación incorrecta: tipo de servicio que no existe ---
+2026-11-08 01:17:38,523 | ERROR | Creación de servicio rechazada: Tipo de servicio desconocido: 'catering'. Opciones: sala, equipo, asesoria.
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de servicio
+2026-11-08 01:17:38,523 | INFO | --- Operación 12: Reserva exitosa: confirmar y procesar con IVA y descuento ---
+2026-11-08 01:17:38,523 | INFO | Reserva creada -> Reserva RES-001 [Pendiente]: Laura Gómez -> Sala de Reuniones A x 3
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de reserva
+2026-11-08 01:17:38,523 | INFO | Reserva confirmada -> Reserva RES-001 [Confirmada]: Laura Gómez -> Sala de Reuniones A x 3
+2026-11-08 01:17:38,523 | INFO | Intento de procesar RES-001 terminado (estado: Procesada)
+2026-11-08 01:17:38,523 | INFO | Reserva procesada -> Reserva RES-001 [Procesada]: Laura Gómez -> Sala de Reuniones A x 3 | total $166,005.00
+2026-11-08 01:17:38,523 | INFO | --- Operación 13: Reserva fallida: duración fuera del rango de la sala (error encadenado) ---
+2026-11-08 01:17:38,523 | ERROR | Reserva rechazada: No se puede crear la reserva: duración no válida.
+2026-11-08 01:17:38,523 | ERROR |    causa original: La sala se reserva de 1 a 8 horas (recibido: 20).
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de reserva
+2026-11-08 01:17:38,523 | INFO | --- Operación 14: Reserva fallida: cliente que no existe ---
+2026-11-08 01:17:38,523 | ERROR | Reserva rechazada: No existe un cliente con id CLI-999.
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de reserva
+2026-11-08 01:17:38,523 | INFO | --- Operación 15: Reserva fallida: servicio fuera de servicio ---
+2026-11-08 01:17:38,523 | ERROR | Reserva rechazada: El servicio 'Proyector HD' no está disponible.
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de reserva
+2026-11-08 01:17:38,523 | INFO | --- Operación 16: Reserva exitosa de asesoría y luego cancelación ---
+2026-11-08 01:17:38,523 | INFO | Reserva creada -> Reserva RES-002 [Pendiente]: Carlos Pérez -> Asesoría en Python x 2
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de reserva
+2026-11-08 01:17:38,523 | INFO | Reserva cancelada -> Reserva RES-002 [Cancelada]: Carlos Pérez -> Asesoría en Python x 2
+2026-11-08 01:17:38,523 | INFO | --- Operación 17: Operación no permitida: cancelar una reserva ya cancelada ---
+2026-11-08 01:17:38,523 | ERROR | Cancelación rechazada: No se puede cancelar RES-002: ya está Cancelada.
+2026-11-08 01:17:38,523 | INFO | --- Operación 18: Operación no permitida: procesar una reserva sin confirmar ---
+2026-11-08 01:17:38,523 | INFO | Reserva creada -> Reserva RES-003 [Pendiente]: Laura Gómez -> Proyector HD x 5
+2026-11-08 01:17:38,523 | INFO | Fin del intento de creación de reserva
+2026-11-08 01:17:38,523 | ERROR | Procesamiento rechazado: No se puede procesar RES-003: debe estar Confirmada y está Pendiente.
+2026-11-08 01:17:38,523 | INFO | --- Operación 19: Descuento inválido al procesar (error encadenado) ---
+2026-11-08 01:17:38,523 | INFO | Reserva confirmada -> Reserva RES-003 [Confirmada]: Laura Gómez -> Proyector HD x 5
+2026-11-08 01:17:38,523 | INFO | Intento de procesar RES-003 terminado (estado: Confirmada)
+2026-11-08 01:17:38,523 | ERROR | Procesamiento rechazado: No se pudo procesar RES-003.
+2026-11-08 01:17:38,523 | ERROR |    causa original: El descuento debe estar entre 0 y 1 (recibido: 1.5).
+2026-11-08 01:17:38,523 | INFO | --- Operación 20: Error inesperado: confirmar un objeto que no es una reserva ---
+2026-11-08 01:17:38,523 | ERROR | Error inesperado al confirmar: 'NoneType' object has no attribute 'confirmar'
+2026-11-08 01:17:38,523 | INFO | --- Operación 21: Método sobrecargado: tres formas de calcular el costo de la sala ---
+2026-11-08 01:17:38,523 | INFO | --- Operación 22: Polimorfismo: un solo ciclo, cada servicio responde a su manera ---
+2026-11-08 01:17:38,523 | INFO | ===== Fin de la simulación =====
